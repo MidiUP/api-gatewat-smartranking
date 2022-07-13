@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { ConnectQueueAdmin } from 'src/common/rabbitMq/connetcion';
+import { ConnectQueueAdmin } from 'src/common/rabbitMq/connection';
 import { CategoriesController } from './categories.controller';
 import { CategoriesService } from './categories.service';
 

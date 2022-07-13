@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs';
 import { PlayersService } from './players.service';
-import { ConnectQueueAdmin } from './../common/rabbitMq/connetcion';
+import { ConnectQueueAdmin } from '../common/rabbitMq/connection';
 import { ClientProxy } from '@nestjs/microservices';
 import {
   BadRequestException,

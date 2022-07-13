@@ -4,16 +4,7 @@ import {
   ClientProxyFactory,
   Transport,
 } from '@nestjs/microservices';
-
-export const connectRabbitMq = (fila: string): ClientProxy => {
-  return ClientProxyFactory.create({
-    transport: Transport.RMQ,
-    options: {
-      urls: ['amqp://user:i1k7st2vIWk9@44.204.159.57:5672/smartranking'],
-      queue: fila,
-    },
-  });
-};
+import 'dotenv/config';
 
 @Injectable()
 export class ConnectQueueAdmin {
@@ -21,7 +12,7 @@ export class ConnectQueueAdmin {
     return ClientProxyFactory.create({
       transport: Transport.RMQ,
       options: {
-        urls: ['amqp://user:i1k7st2vIWk9@44.204.159.57:5672/smartranking'],
+        urls: [process.env.RABBITMQ_URL],
         queue: 'admin-backend',
       },
     });

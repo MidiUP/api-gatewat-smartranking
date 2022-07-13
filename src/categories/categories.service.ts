@@ -1,4 +1,4 @@
-import { ConnectQueueAdmin } from './../common/rabbitMq/connetcion';
+import { ConnectQueueAdmin } from '../common/rabbitMq/connection';
 import { ClientProxy } from '@nestjs/microservices';
 import { Observable } from 'rxjs';
 import { Injectable } from '@nestjs/common';
