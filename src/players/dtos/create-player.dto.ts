@@ -1,4 +1,4 @@
-import { IsEmail, IsNotEmpty } from 'class-validator';
+import { IsEmail, IsNotEmpty, IsOptional } from 'class-validator';
 
 export class CreatePlayerDto {
   @IsNotEmpty()
@@ -11,5 +11,8 @@ export class CreatePlayerDto {
   readonly name: string;
 
   @IsNotEmpty()
-  readonly idCategory: string;
+  readonly category: string;
+
+  @IsOptional()
+  readonly urlImagePlayer: string;
 }

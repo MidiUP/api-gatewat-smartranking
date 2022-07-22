@@ -1,4 +1,4 @@
-import { ConnectQueueAdmin } from '../common/rabbitMq/connection';
+import { ClientProxyConnections } from '../rabbit-mq/client-proxy-connections';
 import { Observable } from 'rxjs';
 import {
   Body,
@@ -20,8 +20,8 @@ export class CategoriesController {
 
   private clientAdminBackend: ClientProxy;
 
-  constructor(private readonly connectQueueAdmin: ConnectQueueAdmin) {
-    this.clientAdminBackend = this.connectQueueAdmin.connect();
+  constructor(private readonly connectQueueAdmin: ClientProxyConnections) {
+    this.clientAdminBackend = this.connectQueueAdmin.connectQueueAdmin();
   }
 
   @Post('')

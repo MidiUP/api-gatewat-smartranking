@@ -1,4 +1,4 @@
-import { ConnectQueueAdmin } from '../common/rabbitMq/connection';
+import { ClientProxyConnections } from '../rabbit-mq/client-proxy-connections';
 import { ClientProxy } from '@nestjs/microservices';
 import { Observable } from 'rxjs';
 import { Injectable } from '@nestjs/common';
@@ -7,8 +7,8 @@ import { Injectable } from '@nestjs/common';
 export class CategoriesService {
   private clientAdminBackend: ClientProxy;
 
-  constructor(private readonly connectQueueAdmin: ConnectQueueAdmin) {
-    this.clientAdminBackend = this.connectQueueAdmin.connect();
+  constructor(private readonly connectQueueAdmin: ClientProxyConnections) {
+    this.clientAdminBackend = this.connectQueueAdmin.connectQueueAdmin();
   }
 
   async getCategoryById(id: string): Promise<Observable<any>> {
